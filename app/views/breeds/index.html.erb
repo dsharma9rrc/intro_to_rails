@@ -1,0 +1,33 @@
+<div class="container">
+<h1>All Dog Breeds</h1>
+<%= form_tag(breeds_path, method: "get", class: "mb-3") do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search breeds..." %>
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @breeds.each do |breed| %>
+      <tr>
+        <td><%= breed.id %></td>
+        <td><%= link_to breed.name, breed_path(breed) %></td>
+      </tr>
+    <% end %>
+    <% if @breeds.empty? %>
+      <tr>
+        <td colspan="2">No dog breeds found.</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @breeds %>

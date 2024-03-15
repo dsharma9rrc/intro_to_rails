@@ -1,0 +1,56 @@
+<div class="container">
+<h1>About Our Web Application</h1>
+
+<h2>Describe Datasets</h2>
+<p>For this project, we will be using data from two main sources:</p>
+<ol>
+    <li>
+        <strong>Dog Breed API:</strong> This API provides a list of dog breeds along with their sub-breeds (if any). The data is structured in JSON format with one main key: "message". Each breed name is a key, and its corresponding value is an array containing sub-breeds (if any). The "status" key indicates the status of the API request.
+    </li>
+    <li>
+        <strong>FakerGem API:</strong> We utilize the FakerGem API to generate fake user data. This data includes user names and email addresses.
+    </li>
+</ol>
+
+<h2>Required Database Tables and Columns</h2>
+<p>Our database schema consists of the following tables:</p>
+<ul>
+    <li>
+        <strong>Table: breeds</strong>
+        <ul>
+            <li>id (Primary Key, INT)</li>
+            <li>name (String)</li>
+            <li>user_id (Foreign Key, INT)</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Table: sub_breeds</strong>
+        <ul>
+            <li>id (Primary Key, INT)</li>
+            <li>name (String)</li>
+            <li>breed_id (Foreign Key, INT)</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Table: users</strong>
+        <ul>
+            <li>id (Primary Key)</li>
+            <li>name (String)</li>
+            <li>email (String)</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Integration of Datasets</h2>
+<p>We integrate the datasets as follows:</p>
+<ul>
+    <li>Data from the Dog Breed API is stored in the <strong>breeds</strong> and <strong>sub_breeds</strong> tables. The breeds table has a one-to-many association with the sub_breeds table.</li>
+    <li>Data from the FakerGem API is stored in the <strong>users</strong> table.</li>
+</ul>
+
+<h2>Database ERD</h2>
+<p>Our database schema is visually represented in the following ERD:</p>
+<img src="<%= asset_path('ERD.png') %>" alt="Database ERD" class="ERDImg">
+<p>For more detailed information on the database structure, please refer to the Database ERD above.</p>
+</div>
+

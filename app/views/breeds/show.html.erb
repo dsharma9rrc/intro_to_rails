@@ -1,0 +1,16 @@
+<div class="breed-details">
+  <h1><%= @breed.name %></h1>
+
+  <div class="user-details">
+    <h2>User posted:</h2>
+    <p><strong>Name:</strong> <%= @breed.user.name %></p>
+    <p><strong>Email:</strong> <%= @breed.user.email %></p>
+  </div>
+
+  <div class="sub-breeds">
+    <h2>Sub Breeds:</h2>
+    <% @breed.sub_breeds.each do |sub_breed| %>
+      <p><%= sub_breed.name %></p>
+    <% end %>
+  </div>
+</div>
